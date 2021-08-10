@@ -7,6 +7,7 @@ defmodule EmployeeRewardApp.Accounts.User do
     field :email, :string
     field :full_name, :string
     field :password_digest, :string
+    belongs_to :role, EmployeeRewardApp.Role
 
     timestamps()
     # Virtual Fields
@@ -17,8 +18,8 @@ defmodule EmployeeRewardApp.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:full_name, :email, :password, :password_confirmation])
-    |> validate_required([:full_name, :email, :password, :password_confirmation])
+    |> cast(attrs, [:full_name, :email, :password, :password_confirmation, :role_id])
+    |> validate_required([:full_name, :email, :password, :password_confirmation, :role_id])
     |> hash_password
   end
 

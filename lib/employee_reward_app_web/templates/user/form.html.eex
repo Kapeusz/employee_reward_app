@@ -21,6 +21,11 @@
   <%= password_input f, :password_confirmation, class: "form-control" %>
   <%= error_tag f, :password_confirmation %>
 
+  <%= label f, :role_id, "Role", class: "control-label" %>
+  <%= select f, :role_id, roles_for_select(@roles), class: "form-control" %>
+  <%= error_tag f, :role_id %>
+
+
   <div>
     <%= submit "Save" %>
   </div>

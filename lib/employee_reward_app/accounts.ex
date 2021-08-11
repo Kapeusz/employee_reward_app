@@ -19,6 +19,7 @@ defmodule EmployeeRewardApp.Accounts do
   """
   def list_users do
     Repo.all(User)
+    |> Repo.preload(:role)
   end
 
   @doc """

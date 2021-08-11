@@ -36,7 +36,7 @@ defmodule EmployeeRewardAppWeb.SessionController do
   defp sign_in(user, password, conn) do
     if Bcrypt.verify_pass(password, user.password_digest) do
       conn
-      |> put_session(:current_user, %{id: user.id, email: user.email})
+      |> put_session(:current_user, %{id: user.id, email: user.email, role_id: user.role_id})
       |> put_flash(:info, "Sign in successful!")
       |> redirect(to: Routes.page_path(conn, :index))
     else

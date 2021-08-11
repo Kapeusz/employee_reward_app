@@ -11,10 +11,10 @@
     <strong>Email:</strong>
     <%= @user.email %>
   </li>
-
+  
   <li>
-    <strong>Password digest:</strong>
-    <%= @user.password_digest %>
+    <strong>Role:</strong>
+    <%= @user.role.name %>
   </li>
 
 </ul>

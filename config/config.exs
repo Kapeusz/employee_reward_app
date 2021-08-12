@@ -32,3 +32,14 @@ import_config "#{Mix.env()}.exs"
 
 # Use comeonin/bcrypt for password hashing
 config :comeonin, bcrypt_log_rounds: 4
+
+# Configures Oban
+config :employee_reward_app, Oban,
+  repo: EmployeeRewardApp.Repo,
+  queues: [default: 10, mailers: 20, events: 50, low: 5],
+  plugins: [Oban.Plugins.Pruner,
+  {Oban.Plugins.Cron,
+  crontab: [
+    {"0 0 1 * *", EmployeeRewardAppWeb.Workers.MonthlyDigestWorker}
+  ]}
+]

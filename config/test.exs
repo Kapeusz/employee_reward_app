@@ -20,3 +20,5 @@ config :employee_reward_app, EmployeeRewardAppWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :employee_reward_app, Oban, queues: false, plugins: false

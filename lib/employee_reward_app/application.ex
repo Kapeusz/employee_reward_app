@@ -5,6 +5,7 @@ defmodule EmployeeRewardApp.Application do
 
   use Application
 
+
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
@@ -14,7 +15,8 @@ defmodule EmployeeRewardApp.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: EmployeeRewardApp.PubSub},
       # Start the Endpoint (http/https)
-      EmployeeRewardAppWeb.Endpoint
+      EmployeeRewardAppWeb.Endpoint,
+      {Oban, oban_config()}
       # Start a worker by calling: EmployeeRewardApp.Worker.start_link(arg)
       # {EmployeeRewardApp.Worker, arg}
     ]
@@ -23,6 +25,11 @@ defmodule EmployeeRewardApp.Application do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: EmployeeRewardApp.Supervisor]
     Supervisor.start_link(children, opts)
+  end
+
+  # Oban configuration
+  defp oban_config do
+    Application.fetch_env!(:employee_reward_app, Oban)
   end
 
   # Tell Phoenix to update the endpoint configuration

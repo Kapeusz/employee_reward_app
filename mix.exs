@@ -20,7 +20,7 @@ defmodule EmployeeRewardApp.MixProject do
   def application do
     [
       mod: {EmployeeRewardApp.Application, []},
-      extra_applications: [:logger, :runtime_tools, :comeonin]
+      extra_applications: [:logger, :runtime_tools, :comeonin, :observer]
     ]
   end
 
@@ -46,7 +46,8 @@ defmodule EmployeeRewardApp.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:comeonin, "~> 5.3"},
-      {:bcrypt_elixir, "~> 2.0"}
+      {:bcrypt_elixir, "~> 2.0"},
+      {:oban, "~> 2.8"}
     ]
   end
 

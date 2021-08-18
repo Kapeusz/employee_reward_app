@@ -10,7 +10,7 @@
   <%= error_tag f, :full_name %>
 
   <%= label f, :email %>
-  <%= text_input f, :email %>
+  <%= email_input f, :email %>
   <%= error_tag f, :email %>
 
   <%= label f, :password, "Password", class: "control-label" %>
@@ -25,6 +25,12 @@
   <%= select f, :role_id, roles_for_select(@roles), class: "form-control" %>
   <%= error_tag f, :role_id %>
 
+  <%= inputs_for f, :pool, fn p -> %>
+    <%= label p, :starting_points, "Starting pool", class: "control-label" %>
+    <%= text_input p, :starting_points, class: "form-control" %>
+    <%= error_tag p, :starting_points %>
+    <%= hidden_input p, :used_points, value: "0", class: "form-control" %>
+  <% end %>
 
   <div>
     <%= submit "Save" %>

@@ -5,15 +5,14 @@ defmodule EmployeeRewardApp.Points.Pool do
   schema "pools" do
     field :starting_points, :integer
     field :used_points, :integer
-    field :user_id, :id
-
+    belongs_to :user, EmployeeRewardApp.Accounts.User
     timestamps()
   end
 
   @doc false
   def changeset(pool, attrs) do
     pool
-    |> cast(attrs, [:starting_points, :used_points])
-    |> validate_required([:starting_points, :used_points])
+    |> cast(attrs, [:starting_points, :used_points, :user_id])
+    |> validate_required([:starting_points])
   end
 end

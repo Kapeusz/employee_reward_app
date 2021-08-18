@@ -36,8 +36,10 @@ defmodule EmployeeRewardApp.Accounts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
-
+  def get_user!(id) do
+    Repo.get!(User, id)
+    |> Repo.preload(:pool)
+  end
   @doc """
   Creates a user.
 
@@ -53,6 +55,7 @@ defmodule EmployeeRewardApp.Accounts do
   def create_user(attrs \\ %{}) do
     %User{}
     |> User.changeset(attrs)
+    # |> Ecto.Changeset.cast_assoc(:pool, with: &EmployeeRewardApp.Points.Pool.changeset/2)
     |> Repo.insert()
   end
 

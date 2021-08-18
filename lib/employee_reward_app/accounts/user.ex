@@ -8,7 +8,7 @@ defmodule EmployeeRewardApp.Accounts.User do
     field :full_name, :string
     field :password_digest, :string
     belongs_to :role, EmployeeRewardApp.Role
-
+    has_one :pool, EmployeeRewardApp.Points.Pool
     timestamps()
     # Virtual Fields
     field :password, :string, virtual: true
@@ -20,6 +20,7 @@ defmodule EmployeeRewardApp.Accounts.User do
     user
     |> cast(attrs, [:full_name, :email, :password, :password_confirmation, :role_id])
     |> validate_required([:full_name, :email, :password, :password_confirmation, :role_id])
+    |> cast_assoc(:pool)
     |> hash_password
   end
 
@@ -37,4 +38,6 @@ defmodule EmployeeRewardApp.Accounts.User do
       changeset
     end
   end
+
+
 end

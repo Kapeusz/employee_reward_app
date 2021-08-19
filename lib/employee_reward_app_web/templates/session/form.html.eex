@@ -1,21 +1,25 @@
-<%= form_for @changeset, @action, fn f -> %>
-  <%= if f.errors != [] do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below:</p>
-      <ul>
-        <%= for {attr, message} <- f.errors do %>
-          <li><%= humanize(attr) %> <%= message %></li>
-        <% end %>
-      </ul>
+<div class="d-flex flex-column">
+  <%= form_for @changeset, @action, fn f -> %>
+    <%= if f.errors != [] do %>
+      <div class="alert alert-danger">
+        <p>Oops, something went wrong! Please check the errors below:</p>
+        <ul>
+          <%= for {attr, message} <- f.errors do %>
+            <li><%= humanize(attr) %> <%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="p-2 ">
+      Email
+      <div class="justify-content-end"><%= text_input f, :email, class: "form-control, w-80" %></div>
     </div>
+    <div class="p-2">     
+      Password
+      <div class="justify-content-end"><%= password_input f, :password, class: "form-control, w-80" %></div>
+    </div>
+    <div class="p-2">
+      <%= submit "Submit", class: "btn btn-primary mt-2" %>
+    </div> 
   <% end %>
-  Email
-  <%= text_input f, :email, class: "form-control" %>
-  Password
-  <%= password_input f, :password, class: "form-control" %>
-
-  </div>
-    <%= submit "Submit", class: "btn btn-primary" %>
-  </div>
-  
-<% end %>
+</div>

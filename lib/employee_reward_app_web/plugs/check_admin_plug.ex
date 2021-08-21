@@ -1,4 +1,4 @@
-defmodule EmployeeRewardAppWeb.CheckAdminPlug do
+defmodule EmployeeRewardAppWeb.Plugs.CheckAdminPlug do
   use EmployeeRewardAppWeb, :controller
 
   @behaviour Plug

@@ -1,38 +1,55 @@
-<%= form_for @changeset, @action, fn f -> %>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
-    </div>
-  <% end %>
-
-  <%= label f, :full_name %>
-  <%= text_input f, :full_name %>
-  <%= error_tag f, :full_name %>
-
-  <%= label f, :email %>
-  <%= email_input f, :email %>
-  <%= error_tag f, :email %>
-
-  <%= label f, :password, "Password", class: "control-label" %>
-  <%= password_input f, :password, class: "form-control" %>
-  <%= error_tag f, :password %>
-  
-  <%= label f, :password_confirmation, "Password Confirmation", class: "control-label" %>
-  <%= password_input f, :password_confirmation, class: "form-control" %>
-  <%= error_tag f, :password_confirmation %>
-
-  <%= label f, :role_id, "Role", class: "control-label" %>
-  <%= select f, :role_id, roles_for_select(@roles), class: "form-control" %>
-  <%= error_tag f, :role_id %>
-
-  <%= inputs_for f, :pool, fn p -> %>
-    <%= label p, :starting_points, "Starting pool", class: "control-label" %>
-    <%= text_input p, :starting_points, class: "form-control" %>
-    <%= error_tag p, :starting_points %>
-    <%= hidden_input p, :used_points, value: "0", class: "form-control" %>
-  <% end %>
-
-  <div>
-    <%= submit "Save" %>
-  </div>
-<% end %>
+<div class="d-flex flex-column">
+    <%= form_for @changeset, @action, fn f -> %>
+      <%= if @changeset.action do %>
+        <div class="alert alert-danger">
+          <p>Oops, something went wrong! Please check the errors below.</p>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="col">
+          <%= label f, :full_name %>
+          <%= text_input f, :full_name, class: "form-control ustify-content-end, w-80", placeholder: "First and last name" %>
+          <%= error_tag f, :full_name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= label f, :email %>
+          <%= email_input f, :email, class: "form-control ustify-content-end, w-80", placeholder: "Email" %>
+          <%= error_tag f, :email %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= label f, :password, "Password", class: "control-label" %>
+          <%= password_input f, :password, class: "form-control", placeholder: "Password" %>
+          <%= error_tag f, :password %>
+        </div>
+        <div class="col">
+          <%= label f, :password_confirmation, "Password Confirmation", class: "control-label" %>
+          <%= password_input f, :password_confirmation, class: "form-control", placeholder: "Confirm password" %>
+          <%= error_tag f, :password_confirmation %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= label f, :role_id, "Role", class: "control-label" %>
+          <%= select f, :role_id, roles_for_select(@roles), class: "form-control" %>
+          <%= error_tag f, :role_id %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= inputs_for f, :pool, fn p -> %>
+            <%= label p, :starting_points, "Starting pool", class: "control-label" %>
+            <%= number_input p, :starting_points, class: "form-control", placeholder: "E.g. 50" %>
+            <%= error_tag p, :starting_points %>
+            <%= hidden_input p, :used_points, value: "0", class: "form-control" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="pt-2">
+        <%= submit "Save", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+</div>

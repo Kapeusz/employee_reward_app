@@ -22,7 +22,7 @@ defmodule EmployeeRewardAppWeb.Router do
   end
 
   scope "/", EmployeeRewardAppWeb do
-    pipe_through [:browser, EmployeeRewardAppWeb.CheckAdminPlug]
+    pipe_through [:browser, EmployeeRewardAppWeb.Plugs.CheckAdminPlug]
     resources "/users", UserController
   end
 

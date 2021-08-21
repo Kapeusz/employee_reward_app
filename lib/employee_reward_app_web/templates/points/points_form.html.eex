@@ -1,0 +1,11 @@
+<%= form_for @conn, "/points", [class: "points-form form-inline", as: :points], fn f -> %>
+  <div class="form-group">
+    <div class="input-group">
+      <%= hidden_input f, :user_id, value: @user.id %>   
+      <%= number_input f, :points, value: 1, class: "form-control", style: "width: 40px"  %>
+    </div>
+    <%= error_tag f, :points %>
+  </div>
+
+  <%= submit "Give points", class: "btn btn-primary pull-right mt-2" %>
+<% end %>

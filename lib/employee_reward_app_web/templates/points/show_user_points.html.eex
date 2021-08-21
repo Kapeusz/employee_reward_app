@@ -1,0 +1,1 @@
+You have used <%= @user.pool.used_points %> out of <%= @user.pool.starting_points %> points.

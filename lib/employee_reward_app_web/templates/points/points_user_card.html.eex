@@ -1,0 +1,6 @@
+             <h5 class="card-title"><%= @user.full_name %></h5>
+             
+                <p class="card-text">Currently points: </p>
+                <%= render "points_form.html", user: @user, conn: @conn  %>
+         
+

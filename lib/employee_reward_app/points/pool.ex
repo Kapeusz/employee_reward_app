@@ -14,6 +14,5 @@ defmodule EmployeeRewardApp.Points.Pool do
     pool
     |> cast(attrs, [:starting_points, :used_points, :user_id])
     |> validate_required([:starting_points])
-    |> foreign_key_constraint(:user_id, message: "User not found!")
   end
 end

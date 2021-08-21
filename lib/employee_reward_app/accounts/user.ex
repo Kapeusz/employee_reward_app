@@ -8,7 +8,7 @@ defmodule EmployeeRewardApp.Accounts.User do
     field :full_name, :string
     field :password_digest, :string
     belongs_to :role, EmployeeRewardApp.Role
-    has_one :pool, EmployeeRewardApp.Points.Pool
+    has_one :pool, EmployeeRewardApp.Points.Pool, on_delete: :delete_all
     timestamps()
     # Virtual Fields
     field :password, :string, virtual: true

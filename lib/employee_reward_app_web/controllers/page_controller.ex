@@ -1,6 +1,5 @@
 defmodule EmployeeRewardAppWeb.PageController do
   use EmployeeRewardAppWeb, :controller
-  #  use EmployeeRewardAppWeb.Helpers.CurrentUser
 
   alias EmployeeRewardApp.Accounts
   alias EmployeeRewardApp.Role

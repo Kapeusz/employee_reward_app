@@ -7,7 +7,8 @@ defmodule EmployeeRewardApp.Points do
   alias EmployeeRewardApp.Repo
 
   alias EmployeeRewardApp.Points.Pool
-  alias EmployeeRewardApp.Repo
+  alias EmployeeRewardApp.Points.GivenPoint
+
 
   @doc """
   Returns the list of pools.
@@ -113,5 +114,11 @@ defmodule EmployeeRewardApp.Points do
       starting_points: 50,
       used_points: 0
     ])
+  end
+
+  def insert_points(points, attrs) do
+    points
+    |> GivenPoint.changeset(attrs)
+    |> Repo.insert()
   end
 end

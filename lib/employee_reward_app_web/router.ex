@@ -7,6 +7,7 @@ defmodule EmployeeRewardAppWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug EmployeeRewardAppWeb.Plugs.CurrentUserPlug
 
   end
 
@@ -19,6 +20,7 @@ defmodule EmployeeRewardAppWeb.Router do
 
     get "/", PageController, :index
     resources "/sessions", SessionController, only: [:new, :create, :delete]
+    post "/points", PointsController, :add
   end
 
   scope "/", EmployeeRewardAppWeb do

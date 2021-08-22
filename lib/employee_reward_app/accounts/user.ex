@@ -9,6 +9,7 @@ defmodule EmployeeRewardApp.Accounts.User do
     field :password_digest, :string
     belongs_to :role, EmployeeRewardApp.Role
     has_one :pool, EmployeeRewardApp.Points.Pool, on_delete: :delete_all
+    has_many :given_points, EmployeeRewardApp.Points.GivenPoint, foreign_key: :user_id, on_delete: :delete_all
     timestamps()
     # Virtual Fields
     field :password, :string, virtual: true

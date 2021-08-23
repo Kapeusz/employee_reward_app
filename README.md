@@ -1,20 +1,22 @@
 # EmployeeRewardApp
 
-To start your Phoenix server:
+EmployeeRewardApp purpose is to allow managing internal rewards within a company.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `npm install` inside the `assets` directory
-  * Start Phoenix endpoint with `mix phx.server`
+### Implemented features
+- Once a month users' pool is resetted and each user starts with a pool of 50 points
+- Admin can edit starting pool
+- User can grant points to other users
+### To be implemented
+- Admin can view monthly reports
+- Notify user by email when receives points
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## Tech
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+- Elixir 1.12.2
+- Postgres (PostgreSQL) 13.3
+- Ecto 3.6.2 
+- Phoenix 1.5.3
 
-## Learn more
+## License
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+MIT

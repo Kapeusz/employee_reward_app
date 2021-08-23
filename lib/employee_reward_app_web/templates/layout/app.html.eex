@@ -29,7 +29,7 @@
                 <a class="nav-link" href="#">Archive<span class="sr-only"></span></a>
               </li>
               <li class="nav-item">
-                <%= if user = current_user(@conn) do %>
+                <%= if user = assigns[:user] do %>
                   <a class="nav-link" href="#">
                     Logged in as
                     <strong><%= user.email %></strong>

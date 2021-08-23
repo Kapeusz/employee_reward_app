@@ -47,7 +47,9 @@ defmodule EmployeeRewardApp.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:comeonin, "~> 5.3"},
       {:bcrypt_elixir, "~> 2.0"},
-      {:oban, "~> 2.8"}
+      {:oban, "~> 2.8"},
+      {:bamboo, "~> 2.2.0"},
+      {:bamboo_phoenix, "~> 1.0.0"}
     ]
   end
 

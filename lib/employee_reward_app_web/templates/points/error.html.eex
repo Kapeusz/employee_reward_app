@@ -1,0 +1,2 @@
+You cannot give points to yourself.
+<span><%= link "Back", to: Routes.page_path(@conn, :index) %></span>

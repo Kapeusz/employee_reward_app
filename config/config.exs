@@ -43,3 +43,11 @@ config :employee_reward_app, Oban,
     {"0 0 1 * *", EmployeeRewardAppWeb.Workers.MonthlyDigestWorker}
   ]}
 ]
+
+# Configure mailer
+config :employee_reward_app, EmployeeRewardApp.EmployeeRewardApp.Mailer,
+  adapter: Bamboo.SendGridAdapter,
+  api_key: "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",
+  hackney_opts: [
+    recv_timeout: :timer.minutes(1)
+  ]

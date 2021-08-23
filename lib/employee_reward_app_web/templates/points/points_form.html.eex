@@ -4,7 +4,7 @@
       <%= hidden_input f, :given_to_user_id, value: @user.id %> 
       <%= number_input f, :given_points, value: 1, class: "form-control", style: "width: 40px"  %>
     </div>
-    <%= error_tag f, :points %>
+    <%= error_tag f, :given_to_user_id %>
   </div>
 
   <%= submit "Give points", class: "btn btn-primary pull-right mt-2" %>

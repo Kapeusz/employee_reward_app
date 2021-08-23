@@ -1,4 +1,4 @@
-defmodule EmployeeRewardAppWeb.LayoutView do
+defmodule EmployeeRewardAppWeb.EmailView do
   use EmployeeRewardAppWeb, :view
 
   def current_user(conn) do

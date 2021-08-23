@@ -23,9 +23,9 @@ defmodule EmployeeRewardAppWeb.Router do
     post "/points", PointsController, :add
   end
 
-  scope "/", EmployeeRewardAppWeb do
+  scope "/users", EmployeeRewardAppWeb do
     pipe_through [:browser, EmployeeRewardAppWeb.Plugs.CheckAdminPlug]
-    resources "/users", UserController
+    resources "/", UserController
   end
 
   # Other scopes may use custom stacks.

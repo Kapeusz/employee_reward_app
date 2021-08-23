@@ -52,9 +52,5 @@ config :logger, level: :info
 #
 # Check `Plug.SSL` for all available options in `force_ssl`.
 
-# Finally import the config/prod.secret.exs which loads secrets
-# and configuration from environment variables.
-import_config "prod.secret.exs"
-
 # Use comeonin/bcrypt for password hashing
 config :comeonin, bcrypt_log_rounds: 14
